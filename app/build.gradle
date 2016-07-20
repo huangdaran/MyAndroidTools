@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "huang.com.myandroidtools"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    //数据库设计
+    //专为视图注入库。
+    /* debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    //展示程序内存泄漏
+   releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'*/
+    //材料设计
+    compile 'de.greenrobot:greendao:1.3.7'
+    compile 'com.jakewharton:butterknife:8.1.0'
+    compile 'it.neokree:MaterialNavigationDrawer:1.3.2'
+    compile 'com.android.support:design:23.4.0'
+    compile project(':pupuliugrid')
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+}
